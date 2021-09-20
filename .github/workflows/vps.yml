@@ -4,10 +4,12 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-     timeout-minutes: 9999
      
      
     steps:
+      - name: Checkout
+          uses: actions/checkout@v2
+          
       - name: ngrok
         run: |
           wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
