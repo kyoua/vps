@@ -1,0 +1,23 @@
+name: Build on Ubuntu
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+     timeout-minutes: 9999
+     
+     
+    steps:
+      - name: ngrok
+        run: |
+          wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+          unzip ngrok-stable-linux-amd64.zip
+          cd ngrok-stable-linux-amd64
+      - name : run ngrok
+        run: |
+          ./ngrok authtoken 1yMtvtYaXy7egLd3ePv81vFCeQZ_wCfkSfgcFmRgJn8TYfwm
+          
+      - name : run ngrok
+        run: |
+          ngrok tcp 22
+        
